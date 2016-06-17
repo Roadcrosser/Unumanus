@@ -1,0 +1,50 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#main {
+	margin-left:auto;
+	margin-right:auto;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-moz-transform: translateY(50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 100%;
+	font-size:200%;
+	clear:both;
+}
+
+a {
+	text-decoration: none;
+	color:blue;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#sub {
+	text-align: right;
+	font-size:50%;
+	position: fixed;
+  bottom: 0;
+	right: 0;
+}
+
+#sub2 {
+	font-size:100%;
+	position:fixed;
+	bottom:5%;
+	width:100%;
+	text-align: center;
+}
