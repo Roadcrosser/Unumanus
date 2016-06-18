@@ -5,7 +5,7 @@
 ██║   ██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║   ██║╚════██║
 ╚██████╔╝██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║╚██████╔╝███████║
  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
-Unumanus v.2.2.2.2
+Unumanus v.2.2.2.2.2
 
 Note: If you see a big garble of characters above, you might want to consider ignoring Step 2 and going to http://roadcrosser.xyz/Unumanus to get this file instead.
       While using this version is also fine, it'd just look worse.
@@ -119,7 +119,7 @@ if Instr(Heats1, "~") > 0
 if OrgnRNG = 1
 {
 Orng1 = Oranuelstaranda~|bogosort~|Bootleg Michaelangestar Jackson~|Stargarine~|nancy~|j{#}rew{!}3d9Sb~|Orange Quartz~|Roborangecop~|Star Orangefly~|Starangebucks~|Storangebucks~|Not Rodea~|Orangulus Rift~|John Jacob Orangeheimer Schmidt~|Georangeo Starmani~|orangudan~|orangutan~|orngasdlfjsdghj~|apple+|orbit+|Onigiri|Oran Jester|Oran-jee|dubmo|mango|Matt Groerange|oj|tangerine|oranot|norbert|oreana|oriana|orancle|ronage|blorenge|egnao|oringe|obinge|orbinge|orbin|oragn|orange|orgate|norgate|ogre|ogle|ronaeg|organ|oroongay|oingy boingy|egnaro|oarng|oingo boingo|orngear|ngroae|egroan|doorhinge|norgerge|ornge|ornage|orgne|organe|ograne|ongere|rangeo|oerange|oran berry|oregano|orenge|oregon|oregona|oranga|orgene|oronge|ereonge|rngeoa|rnoarg|orngea|rongea|ornga|oregangeo|organge|daniel-range|ordan|orgean|orgaen|orgn|red-yellow|yellow-red
-Orng2 = juicestain|stem|spear|shed|nerd|clod|star|stare|stair|shtar|stra|strar|strer|sta|staro|stairs|star| star|starstar| starstar|ster|stror|stah|steh|sror|sar|score|sert|ASSERT|scrim|sploot|sweat|suit|stress|sort|spit|ASSET|swood|stan|juice|puff|-chan|-san|-kun|-sama|-sensei
+Orng2 = juicestain|stem|spear|shed|nerd|clod|star|stare|stair|shtar|stra|strar|strer|sta|staro|stairs|star| star|starstar| starstar|ster|stror|stah|steh|sror|sar|score|sert|ASSERT|scrim|sploot|sweat|suit|stress|sort|spit|ASSET|swood|stan|juice|puff|-chan|-san|-kun|-sama|-sensei|stir|stick|starman|sink|shorgan
 Orng3 = 1|10|11|12|13|14|15|16|17|18|19|one|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen
 StringSplit Orngarray1, Orng1, |
 StringSplit Orngarray2, Orng2, |
@@ -340,6 +340,13 @@ SendRaw 68 74 74 70 3a 2f 2f 72 6f 61 64 63 72 6f 73 73 65 72 2e 78 79 7a 2f 74 
 }
 return
 
+:*:<bee>::
+if FUN >= 1
+{
+SendRaw Accordion to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyways. Because bees don't care what humans think is impossible.
+}
+return
+
 :*:<script>::http://roadcrosser.xyz/Unumanus/
 :*:<changelog>::http://roadcrosser.xyz/Unumanus/changelog/
 :*:<troubleshoot>::http://roadcrosser.xyz/Unumanus/broke/
@@ -369,13 +376,6 @@ return
 if FUN >= 3
 {
   SendEvent {Backspace}{Backspace}{Backspace}{U+0136}{U+049E}{U+04A0}
-}
-return
-
-:*?0b0:42:: ; **42**
-if FUN >= 4
-{
-  SendEvent {Backspace}{Backspace}**42**
 }
 return
 
@@ -457,19 +457,19 @@ return
 ;—————————————————————————————————————————————————————————————————————————————————————————————————
 ;Special characters I'll probably never use
 
-::^1:: ; ¹
+:*:<^1>:: ; ¹
 {
 SendEvent {U+00B9}
 }
 return
 
-::^2:: ; ²
+:*:<^2>:: ; ²
 {
 SendEvent {U+00B2}
 }
 return
 
-::^3:: ; ³
+:*:<^3>:: ; ³
 {
 SendEvent {U+00B3}
 }
@@ -679,103 +679,109 @@ SendEvent {U+200B}
 }
 return
 
-:*:<wj>:: ;
+:*:<wj>:: ; ⁠
 {
 SendEvent {U+2060}
 }
 return
 
-:*:<feff>:: ;
+:*:<rtl>:: ; ‮
+{
+SendEvent {U+202E}
+}
+return
+
+:*:<feff>:: ; ﻿
 {
 SendEvent {U+FEFF}
 }
 return
 
-::1/4:: ; ¼
+:*:<1/4>:: ; ¼
 {
 SendEvent {U+00BC}
 }
 return
 
-::1/2:: ; ½
+:*:<1/2>:: ; ½
 {
 SendEvent {U+00BD}
 }
 return
 
-::3/4:: ; ¾
+:*:<3/4>:: ; ¾
 {
 SendEvent {U+00BE}
 }
 return
 
-::1/3:: ; ⅓
+:*:<1/3>:: ; ⅓
 {
 SendEvent {U+2153}
 }
 return
 
-::2/3:: ; ⅔
+:*:<2/3>:: ; ⅔
 {
 SendEvent {U+2154}
 }
 return
 
-::1/5:: ; ⅕
+:*:<1/5>:: ; ⅕
 {
 SendEvent {U+2155}
 }
 return
 
-::2/5:: ; ⅖
+:*:<2/5>:: ; ⅖
 {
 SendEvent {U+2156}
 }
 return
 
-::3/5:: ; ⅗
+:*:<3/5>:: ; ⅗
 {
 SendEvent {U+2157}
 }
 return
 
-::4/5:: ; ⅘
+:*:<4/5>:: ; ⅘
 {
 SendEvent {U+2158}
 }
 return
 
-::1/6:: ; ⅙
+:*:<1/6>:: ; ⅙
 {
 SendEvent {U+2159}
 }
 return
 
-::5/6:: ; ⅚
+:*:<5/6>:: ; ⅚
 {
 SendEvent {U+215A}
 }
 return
 
-::1/8:: ; ⅛
+:*:<1/8>:: ; ⅛
 {
 SendEvent {U+215B}
 }
 return
 
-::3/8:: ; ⅜
+:*:<3/8>:: ; ⅜
 {
 SendEvent {U+215C}
 }
 return
 
-::5/8:: ; ⅝
+:*:<5/8>:: ; ⅝
 {
 SendEvent {U+215D}
 }
 return
 
-::7/8:: ; ⅞
+:*:<7/8>:: ; ⅞
 {
 SendEvent {U+215E}
 }
@@ -914,7 +920,7 @@ Check_ForUpdate(_ReplaceCurrentScript = 1, _SuppressMsgBox = 0, _CallbackFunctio
 {
 
 	Static Script_Name := "Unumanus"
-	, Version_Number := "2.2.2.2"
+	, Version_Number := "2.2.2.2.2"
 	, Update_URL := "http://roadcrosser.xyz/Unumanus/Version.ini"
 	, Retry_Count := 3
 
