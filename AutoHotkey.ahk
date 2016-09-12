@@ -5,7 +5,7 @@
 ██║   ██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║   ██║╚════██║
 ╚██████╔╝██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║╚██████╔╝███████║
  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
-Unumanus v.2.2.2.2.2
+Unumanus v.2.2.2.2.2.2
 
 Note: If you see a big garble of characters above, you might want to consider ignoring Step 2 and going to http://roadcrosser.xyz/Unumanus to get this file instead.
       While using this version is also fine, it'd just look worse.
@@ -289,7 +289,8 @@ return
 #F20::
 if EnablePen = 1
 {
-Send, {MButton}
+Send, {RWin up}
+Send, ^z
 }
 Return
 
@@ -297,7 +298,8 @@ Return
 #F19::
 if EnablePen = 1
 {
-Run, %ProgramFiles%\Common Files\microsoft shared\ink\TabTip.exe
+Send, {RWin up}
+Send, {MButton}
 }
 Return
 
@@ -305,6 +307,7 @@ Return
 #F18::
 if EnablePen = 1
 {
+Send, {RWin up}
 Send,^+4
 }
 Return
@@ -347,19 +350,16 @@ SendRaw Accordion to all known laws of aviation, there is no way that a bee shou
 }
 return
 
+:*:<letthebasskick>::
+if FUN >= 1
+{
+SendRaw O-oooooooooo AAAAE-A-A-I-A-U-JO-oooooooooooo AAE-O-A-A-U-U-A-E-eee-ee-eee AAAAE-A-E-I-E-A-JO-ooo-oo-oo-oo EEEEO-A-AAA-AAAA O-oooooooooo AAAAE-A-A-I-A-U-JO-oooooooooooo AAE-O-A-A-U-U-A-E-eee-ee-eee AAAAE-A-E-I-E-A-JO-ooo-oo-oo-oo EEEEO-A-AAA-AAAA
+}
+return
+
 :*:<script>::http://roadcrosser.xyz/Unumanus/
 :*:<changelog>::http://roadcrosser.xyz/Unumanus/changelog/
 :*:<troubleshoot>::http://roadcrosser.xyz/Unumanus/broke/
-
-:?0b0:kek::
-if FUN >= 2
-{
-if GetKeyState("Enter") {
-    SendRaw zozzle* ;cake is no longer funny.
-      return
-  }
-}
-return
 
 :?0b0:wow::
 if FUN >= 3
@@ -920,7 +920,7 @@ Check_ForUpdate(_ReplaceCurrentScript = 1, _SuppressMsgBox = 0, _CallbackFunctio
 {
 
 	Static Script_Name := "Unumanus"
-	, Version_Number := "2.2.2.2.2"
+	, Version_Number := "2.2.2.2.2.2"
 	, Update_URL := "http://roadcrosser.xyz/Unumanus/Version.ini"
 	, Retry_Count := 3
 
