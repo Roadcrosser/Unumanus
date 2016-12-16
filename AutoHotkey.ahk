@@ -5,7 +5,7 @@
 ██║   ██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║   ██║╚════██║
 ╚██████╔╝██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║╚██████╔╝███████║
  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
-Unumanus v.2.2.2.2.2.2
+Unumanus v.2.2.2.2.2.2.2
 
 Note: If you see a big garble of characters above, you might want to consider ignoring Step 2 and going to http://roadcrosser.xyz/Unumanus to get this file instead.
       While using this version is also fine, it'd just look worse.
@@ -322,12 +322,6 @@ Return
 :?0:adn::and
 ::@@::@gmail.com
 
-:*:<tokyo>::
-if FUN >= 1
-{
-SendRaw WHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT
-}
-return
 
 :*:<binary>::
 if FUN >= 1
@@ -384,6 +378,12 @@ return
 :*:<shrug>:: ; ¯\_(ツ)_/¯
 {
 SendEvent {U+0xAF}{\}{_}{(}{U+30C4}{)}{_}{/}{U+0xAF}
+}
+return
+
+:*:<shrug2>:: ; ┐(￣ ヘ ￣;)┌
+{
+SendEvent {U+2510}({U+FFE3} {U+30D8} {U+FFE3};){U+250C}
 }
 return
 
@@ -640,18 +640,6 @@ return
 :*:=/=:: ; ≠
 {
 SendEvent {U+2260}
-}
-return
-
-::=<:: ; ≤
-{
-SendEvent {U+2264}
-}
-return
-
-::=>:: ; ≥
-{
-SendEvent {U+2265}
 }
 return
 
@@ -920,7 +908,7 @@ Check_ForUpdate(_ReplaceCurrentScript = 1, _SuppressMsgBox = 0, _CallbackFunctio
 {
 
 	Static Script_Name := "Unumanus"
-	, Version_Number := "2.2.2.2.2.2"
+	, Version_Number := "2.2.2.2.2.2.2"
 	, Update_URL := "http://roadcrosser.xyz/Unumanus/Version.ini"
 	, Retry_Count := 3
 
