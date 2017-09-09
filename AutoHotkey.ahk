@@ -5,7 +5,7 @@
 ██║   ██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║   ██║╚════██║
 ╚██████╔╝██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║╚██████╔╝███████║
  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
-Unumanus v.2.2.2.2.2.2.2
+Unumanus v.2.3
 
 Note: If you see a big garble of characters above, you might want to consider ignoring Step 2 and going to http://roadcrosser.xyz/Unumanus to get this file instead.
       While using this version is also fine, it'd just look worse.
@@ -20,6 +20,7 @@ Note: If you see a big garble of characters above, you might want to consider ig
 #NoEnv
 SendMode Input
 SetWorkingDir %A_ScriptDir%
+FileEncoding UTF-8
 #SingleInstance force
 #Hotstring ?
 
@@ -44,8 +45,6 @@ Does This Config File Exist=Probably
 Definitely an important value=8
 
 [Script Functions]
-Enable Orange Randomizer=1
-Enable Heats Randomizer=1
 Enable Automatic Update Checking=1
 How long to wait until checking for an update again (in milliseconds - 0 to disable)=21600000
 Enable Surface Pen Remapping=0
@@ -56,8 +55,6 @@ FUN=2
 
 IniRead, Important, %A_MyDocuments%\UnumanusConfig.ini, Don't Touch This., Definitely an important value
 
-IniRead, OrgnRNG, %A_MyDocuments%\UnumanusConfig.ini, Script Functions, Enable Orange Randomizer
-IniRead, HeatsRNG, %A_MyDocuments%\UnumanusConfig.ini, Script Functions, Enable Heats Randomizer
 IniRead, AutoUpdate, %A_MyDocuments%\UnumanusConfig.ini, Script Functions, Enable Automatic Update Checking
 IniRead, UpdateDelay, %A_MyDocuments%\UnumanusConfig.ini, Script Functions, How long to wait until checking for an update again (in milliseconds - 0 to disable)
 IniRead, EnablePen, %A_MyDocuments%\UnumanusConfig.ini, Script Functions, Enable Surface Pen Remapping
@@ -89,110 +86,6 @@ IniWrite, 4, %A_MyDocuments%\UnumanusConfig.ini, Script Functions, FUN
 
 ;—————————————————————————————————————————————————————————————————————————————————————————————————
 /*
-╔═══════════════════╗
-║  RANDOMIZER INIT  ║
-╚═══════════════════╝
-*/
-
-if HeatsRNG = 1
-{
-Heats1 = Wang Fire~|That guy whose name I cant remember~|That guy whose name I forgot~|Firey Whatsisface~|That guy who's made of fire, you know the one.~|Mr. Burns~|Steve~|Red Hot Chibi Pepper~|Mr. Hotpants McGee~|SO EASILY DEFEATED~|Grillby~|Mr. Explosion~|Burnie Cinders~|Jack Frost~|Potentia|Ignis|Heats|Flames|Firey|Hot|Fire|Hots|Fires|Flame|Flamey|Heaty|Burning|Char|Charred|Charry|Burns|Burn|Blazes|Blaze|Blazing|Ember|Embers|Arson|Sparky|Sparks|Infernal|Inferno|Melt|Melts|Melty|Melting|Seary|Searing|Sear|Swelter|Sweltering|Thermal|Warm|Roast|Roasty|Combustion|Combustiony|Broil|Broils|Broily|Broiling|Boil|Boils|Boily|Boiling|Warms|Flaming|Heating|Warming|Roasting|Flameo|Toast|Toasts|Toasting|Toasty|Lava|Lavas|Magma|Magmas|Stars|Star|Starry|Grill|Grilly|Grilling|Steam|Steamy|Steamer|Steams|Redhot|Redhots|Spicy|Spice|Spicing|Fuming|Fumes|Blast|Blasts|Blasting|Blaster|Cinder|Cinders|Pyro|Sizzling|Sizzle|Sizzler|Sizzles
-Heats2 = man|guy|dude|face|head|waffle|bro|bud|bub|smith|runt|pip|ton|sir|ster|boy|ius|master|kid
-StringSplit HeatsArray1, Heats1, |
-StringSplit HeatsArray2, Heats2, |
-Random, Randnum,1,% HeatsArray10 ; Heats
-Heats1 := HeatsArray1%Randnum%
-Random, Randnum,15,% HeatsArray10 ; Flames
-Heats2 := HeatsArray1%Randnum%
-Random, Randnum,1,% HeatsArray20 ; man
-Heats3 := HeatsArray2%Randnum%
-Heats4 := " " ; The letter space, the final frontier.
-if Instr(Heats1, "~") > 0
-{
-  StringTrimRight, Heats1, Heats1, 1
-  Heats2 =
-  Heats3 =
-  Heats4 =
-}
-}
-
-if OrgnRNG = 1
-{
-Orng1 = Oranuelstaranda~|bogosort~|Bootleg Michaelangestar Jackson~|Stargarine~|nancy~|j{#}rew{!}3d9Sb~|Orange Quartz~|Roborangecop~|Star Orangefly~|Starangebucks~|Storangebucks~|Not Rodea~|Orangulus Rift~|John Jacob Orangeheimer Schmidt~|Georangeo Starmani~|orangudan~|orangutan~|orngasdlfjsdghj~|apple+|orbit+|Onigiri|Oran Jester|Oran-jee|dubmo|mango|Matt Groerange|oj|tangerine|oranot|norbert|oreana|oriana|orancle|ronage|blorenge|egnao|oringe|obinge|orbinge|orbin|oragn|orange|orgate|norgate|ogre|ogle|ronaeg|organ|oroongay|oingy boingy|egnaro|oarng|oingo boingo|orngear|ngroae|egroan|doorhinge|norgerge|ornge|ornage|orgne|organe|ograne|ongere|rangeo|oerange|oran berry|oregano|orenge|oregon|oregona|oranga|orgene|oronge|ereonge|rngeoa|rnoarg|orngea|rongea|ornga|oregangeo|organge|daniel-range|ordan|orgean|orgaen|orgn|red-yellow|yellow-red
-Orng2 = juicestain|stem|spear|shed|nerd|clod|star|stare|stair|shtar|stra|strar|strer|sta|staro|stairs|star| star|starstar| starstar|ster|stror|stah|steh|sror|sar|score|sert|ASSERT|scrim|sploot|sweat|suit|stress|sort|spit|ASSET|swood|stan|juice|puff|-chan|-san|-kun|-sama|-sensei|stir|stick|starman|sink|shorgan
-Orng3 = 1|10|11|12|13|14|15|16|17|18|19|one|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen
-StringSplit Orngarray1, Orng1, |
-StringSplit Orngarray2, Orng2, |
-StringSplit Orngarray3, Orng3, |
-Random, Randnum,1,% Orngarray10 ; orange
-Orng1 := Orngarray1%Randnum%
-Random, Randnum,1,% Orngarray20 ; star (opt)
-Orng5 := Orngarray2%Randnum%
-Random, Randnum,1,% Orngarray30 ; 12 (opt)
-Orng6 := Orngarray3%Randnum%
-Random, Randnum,1,% Orngarray30 ; 11 (opt)
-Orng7 := Orngarray3%Randnum%
-Random, Randnum, 1,5 ; chance to get suffix
-if Randnum = 1
-{
-  Random, Randnum,1,% Orngarray20 ; star
-  Orng2 := Orngarray2%Randnum%
-}
-else
-{
-  Orng2 =
-}
-
-Random, Randnum,1,3 ; chance to get a number
-if Randnum = 1
-{
-  Random, Randnum, 1,% Orngarray40 ;12
-  Orng3 := Orngarray3%Randnum%
-}
-else
-{
-  Orng3 =
-}
-
-Random, Randnum,1,3 ; chance to get a second number
-if Randnum = 1
-{
-  Random, Randnum, 1,% Orngarray40 ;11
-  Orng4 := Orngarray3%Randnum%
-}
-else
-{
-  Orng4 =
-}
-
-if Instr(Orng1, "~") > 0 ; Special Names that don't need no star
-{
-  StringTrimRight, Orng1, Orng1, 1
-  Orng2 =
-  Orng5 =
-  Orng6 =
-  Orng7 =
-}
-
-if Instr(Orng1, "+") > 0 ; Special Names that depend on the star for it's success
-{
-  StringTrimRight, Orng1, Orng1, 1
-  Random, Randnum,1,% Orngarray20
-  Orng2 := Orngarray2%Randnum%
-}
-
-if Orng2 =
-{
-  Orng3 =
-}
-
-if Orng3 =
-{
-  Orng4 =
-}
-}
-;—————————————————————————————————————————————————————————————————————————————————————————————————
-/*
 ╔══════════════╗
 ║ AUTO UPDATES ║
 ╚══════════════╝
@@ -212,61 +105,6 @@ if AutoUpdate = 1
 Return
 ;—————————————————————————————————————————————————————————————————————————————————————————————————
 /*
-╔═════════════════════╗
-║ RANDOMIZER TRIGGERS ║
-╚═════════════════════╝
-*/
-
-:*:<hf>::
-if GetKeyState("CapsLock", "T") = 1
-{
-  StringUpper, Heats1, Heats1
-  StringUpper, Heats2, Heats2
-  StringUpper, Heats3, Heats3
-}
-Send %Heats1%%Heats4%%Heats2%%Heats3%
-reload
-return
-
-:*:<oj>::
-if GetKeyState("CapsLock", "T") = 1
-{
-  StringUpper, Orng1, Orng1
-  StringUpper, Orng2, Orng2
-  StringUpper, Orng4, Orng4
-  StringUpper, Orng5, Orng5
-}
-Send %Orng1%%Orng2%%Orng3%%Orng4%
-reload
-return
-
-:*:<oj2>::
-if GetKeyState("CapsLock", "T") = 1
-{
-  StringUpper, Orng1, Orng1
-  StringUpper, Orng5, Orng5
-  StringUpper, Orng6, Orng6
-  StringUpper, Orng7, Orng7
-}
-Send %Orng1%%Orng5%%Orng6%%Orng7%
-reload
-return
-
-:*:<rip>::
-if FUN >= 1
-{
-rip = https://www.youtube.com/watch?v=GJbjKX3MFnc|https://tcrf.net/images/8/80/Undertale_Mus_kingdescription.ogg|http://roadcrosser.xyz/`%7B`%7B`%7B`%7B`%7B`%7D`%7D`%7D`%7D`%7D/Studio`%20Pixel/Gameover.mp3|http://roadcrosser.xyz/`%7B`%7B`%7B`%7B`%7B`%7D`%7D`%7D`%7D`%7D/Danny`%20Baranowsky/Game`%20Over.mp3|http://roadcrosser.xyz/`%7B`%7B`%7B`%7B`%7B`%7D`%7D`%7D`%7D`%7D/Yann`%20van`%20der`%20Cruyssen/Game`%20Over.mp3|http://i.imgur.com/Iu436XX.png|http://i.imgur.com/Jy1n3v9.png|http://i.imgur.com/F34dyIW.png|http://i.imgur.com/31RzSh6.png|http://i.imgur.com/tPy9tHW.gif|http://i.imgur.com/nXmydCU.png|https://www.youtube.com/watch?v=RSrrniGr-ac|https://i.imgur.com/KxB69lc.gif|http://roadcrosser.xyz/clap.mp3|http://i.imgur.com/y3rMXjr.png|https://www.youtube.com/watch?v=4vSNnVVBdIg|http://i.imgur.com/7FpLZE0.png|https://www.youtube.com/watch?v=t1-5KxXz8zw|011100100110100101110000|726970|http://i.imgur.com/600QcFT.png|http://i.imgur.com/sq6neSB.png|http://i.imgur.com/ZKFN1Hj.png|rip|.-. .. .--.
-
-StringSplit riparray, rip, |
-Random, Randnum, 1, % riparray0
-rip := riparray%Randnum%
-Send %rip%
-}
-return
-
-;—————————————————————————————————————————————————————————————————————————————————————————————————
-
-/*
 ╔══════════════════╗
 ║  SUSPEND/RELOAD  ║
 ╚══════════════════╝
@@ -279,38 +117,7 @@ return
 Reload
 return
 
-;—————————————————————————————————————————————————————————————————————————————————————————————————
-/*
-╔══════════════════╗
-║SURFACE PEN REMAPS║
-╚══════════════════╝
-*/
-;Click top once
-#F20::
-if EnablePen = 1
-{
-Send, {RWin up}
-Send, ^z
-}
-Return
 
-;Click top twice
-#F19::
-if EnablePen = 1
-{
-Send, {RWin up}
-Send, {MButton}
-}
-Return
-
-;Hold top
-#F18::
-if EnablePen = 1
-{
-Send, {RWin up}
-Send,^+4
-}
-Return
 ;—————————————————————————————————————————————————————————————————————————————————————————————————
 /*
 ╔══════════════════╗
@@ -378,6 +185,12 @@ return
 :*:<shrug>:: ; ¯\_(ツ)_/¯
 {
 SendEvent {U+0xAF}{\}{_}{(}{U+30C4}{)}{_}{/}{U+0xAF}
+}
+return
+
+:*:<lenny>:: ; ( ͡° ͜ʖ ͡°)
+{
+SendEvent ( {U+0361}{U+00B0} {U+035C}{U+0296} {U+0361}{U+00B0})
 }
 return
 
@@ -874,7 +687,71 @@ return
 
 !c:: SoundSet, 60 ; 60%
 
+~c & v::
+	if GetKeyState("Alt") {
+        SoundSet, 70 ; 70%
+        return
+    }
+  return
+
+~v & c::
+	if GetKeyState("Alt") {
+        SoundSet, 70 ; 70%
+        return
+    }
+  return
+  
 !v:: SoundSet, 100 ; 100%
+
+;—————————————————————————————————————————————————————————————————————————————————————————————————
+/*
+╔══════════════════╗
+║  CURSOR FLIPPER  ║
+╚══════════════════╝
+*/
+
+#F12::
+	MOUSE_SWAP := 0x21
+	SET_CURSORS := 0x57
+	KEY_ORDER := ["Arrow","Help","AppStarting","Wait","Crosshair","IBeam","NWPen","No","SizeNS","SizeWE","SizeNWSE","SizeNESW","SizeAll","UpArrow","Hand"]
+	SCHEME = Windows Alt
+	DEFAULT_SCHEME = Windows Aero
+	
+	; Generate scheme list
+	RegRead, SchemeList, HKEY_CURRENT_USER\Control Panel\Cursors\Schemes, % SCHEME,
+	SchemeList := StrSplit(SchemeList, ",")
+	RegRead, DefaultSchemeList, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Cursors\Schemes, % DEFAULT_SCHEME,
+	DefaultSchemeList := StrSplit(DefaultSchemeList, ",")
+    
+	; Swap mouse buttons
+    RegRead, Value, HKEY_CURRENT_USER\Control Panel\Mouse, SwapMouseButtons,
+
+    DllCall("SystemParametersInfo", "UInt", MOUSE_SWAP, "UInt", !Value, "UInt", 0, "UInt", "0")
+    RegWrite, REG_SZ, HKEY_CURRENT_USER\Control Panel\Mouse, SwapMouseButtons, % !Value
+	
+    if (!SchemeList.MaxIndex()) {
+        Return
+    }
+
+    ; Change cursor
+    if (!Value) {
+        RegWrite, REG_SZ, HKEY_CURRENT_USER\Control Panel\Cursors, , SCHEME
+        RegWrite, REG_DWORD, HKEY_CURRENT_USER\Control Panel\Cursors, Scheme Source, 1
+
+        for i, v in KEY_ORDER {
+            RegWrite, REG_EXPAND_SZ, HKEY_CURRENT_USER\Control Panel\Cursors, % v, % SchemeList[i]
+        }
+    } else {
+        RegWrite, REG_SZ, HKEY_CURRENT_USER\Control Panel\Cursors, , DEFAULT_SCHEME
+        RegWrite, REG_DWORD, HKEY_CURRENT_USER\Control Panel\Cursors, Scheme Source, 2
+
+        for i, v in KEY_ORDER {
+            RegWrite, REG_EXPAND_SZ, HKEY_CURRENT_USER\Control Panel\Cursors, % v, % DefaultSchemeList[i]
+        }
+    }
+
+    DllCall("SystemParametersInfo", "UInt", SET_CURSORS, "UInt", 0, "UInt", 0, "UInt", "0")
+Return
 
 ;—————————————————————————————————————————————————————————————————————————————————————————————————
 /*
@@ -908,7 +785,7 @@ Check_ForUpdate(_ReplaceCurrentScript = 1, _SuppressMsgBox = 0, _CallbackFunctio
 {
 
 	Static Script_Name := "Unumanus"
-	, Version_Number := "2.2.2.2.2.2.2"
+	, Version_Number := "2.3"
 	, Update_URL := "http://roadcrosser.xyz/Unumanus/Version.ini"
 	, Retry_Count := 3
 
